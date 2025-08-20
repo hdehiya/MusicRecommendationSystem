@@ -1,4 +1,7 @@
-#Simple Flask Form
+Content Based Music Recommendation System - Project done during Bachelors at University of Mumbai.
+
+Perform audio signal processing to extract features and recommend songs for existing/new music file.
+
 
 ### Usage
 
@@ -8,10 +11,3 @@
 
 - To install pip: `sudo easy_install pip`
 - To install Flask: `pip install -r requirements.txt`
-
-
-#### Requirements
-
-- Python 2.7
-- pip
-- Flask

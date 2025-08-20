@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='test.css') }}">
+    <title>Music Recommendation</title>
+</head>
+<body>
+    <h2>
+        Song Recommendations for "{{ song | clean_song_name }}"
+        <br>
+        <audio controls="controls" src="{{ url_for('static', filename=song) }}" type="audio/mpeg"></audio>
+        <br>
+    </h2>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>Song</th>
+                <th>Play Song</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in recommendations[:9] %}
+            <tr>
+                <td>{{ item[0]|clean_song_name }}</td>
+                <td><audio controls="controls" src="{{ url_for('static', filename=item) }}" type="audio/mpeg"></audio></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br/>
+    <a href="{{ url_for('index') }}">Back Home</a>
+</body>
+</html>

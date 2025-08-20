@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='test.css') }}">
+    <title>Music Recommendation System</title>
+</head>
+<body>
+    <br/>
+    <h1 class="center">Music Recommendation</h1>
+    <br/>
+    <div style="width: 95%; overflow: hidden; margin:auto;">
+        <div class="container" style="width: 550px; height: 350px; float: left; margin:auto; margin-top:18px;">
+            <form action="{{ url_for('hello') }}" method="post" enctype="multipart/form-data">
+                <br/><br/>
+                <p class="center">Upload a Song:</p>
+                <input class="center" type="file" name="file"> <br/><br/>
+                <p class="center"><input type="submit" name="form" value="Submit"/></p>
+            </form>
+        </div>
+        <div class="container" style="width:550px; height: 350px; float: right; margin:auto">
+            <form action="{{ url_for('songselect') }}" method="post">
+                <p class="center">Or Select a song from the dataset:</p>
+                <select class="center" name="songselection" size="8">
+                    {% for name in song_names %}
+                        <option value="{{ name }}">{{ name }}</option>
+                    {% endfor %}
+                </select>
+                <p class="center"><input type="submit" name="form" value="Submit"/></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
